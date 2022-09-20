@@ -16,7 +16,7 @@ export const Parent: React.FC<ParentProps> = ({ headerRef }) => {
     return () => {
       clearInterval(interval);
     };
-  });
+  }, []);
 
   console.log("Render Parent");
 

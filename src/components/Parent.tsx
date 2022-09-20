@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useState } from "react";
+import { RefObject, useEffect, useState, useMemo, useCallback } from "react";
 import { Child } from "./Child";
 
 type ParentProps = {
@@ -18,7 +18,15 @@ export const Parent: React.FC<ParentProps> = ({ headerRef }) => {
     };
   });
 
-  console.log("Render Parent");
+  // console.log("Render Parent");
+
+  const variable = useMemo(() => state + 3, []);
+  const functionVariable = useCallback(() => {
+    console.log("Parent Function Variable", state);
+  }, []);
+
+  console.log(variable);
+  functionVariable();
 
   return (
     <>
